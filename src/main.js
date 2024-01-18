@@ -8,7 +8,30 @@ import "v-calendar/style.css";
 const app = createApp(App);
 
 // Use plugin defaults (optional)
-app.use(setupCalendar, {});
+app.use(setupCalendar, {
+  locales: {
+    it: {
+      firstDayOfWeek: 1,
+      masks: {
+        weekdays: "WW",
+        title: "MMMM YYYY",
+        navMonths: "MMM",
+        input: ["L", "YYYY-MM-DD", "YYYY/MM/DD"],
+        dayPopover: "L",
+        data: ["L", "YYYY-MM-DD", "YYYY/MM/DD"],
+        // ...aggiungi altre maschere se necessario
+      },
+    },
+  },
+  modelConfig: {
+    start: {
+      timeAdjust: "09:30:00",
+    },
+    end: {
+      timeAdjust: "20:59:59",
+    },
+  },
+});
 
 // Use the components
 app.component("VCalendar", Calendar);

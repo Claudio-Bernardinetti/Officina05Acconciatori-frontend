@@ -62,7 +62,7 @@ export default {
     <div class="footer-bottom text-white bg-dark p-2">
       <div class="d-flex justify-content-center flex-wrap mx-2 pt-3">
         <div class="left d-flex">
-          <p>Term And Conditions</p>
+          <p>CB</p>
         </div>
         <div class="right d-flex">
           <img src="" alt="" />

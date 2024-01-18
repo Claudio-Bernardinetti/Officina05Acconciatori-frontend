@@ -25,4 +25,8 @@ export default {
 
 <style lang="scss" scoped>
 @use "./assets/scss/partials/variables" as *;
+
+main {
+  background-color: rgb(151, 173, 193);
+}
 </style>
