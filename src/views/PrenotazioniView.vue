@@ -67,27 +67,45 @@ export default {
 
     // Funzioni
     const checkForm = async () => {
+      let isValid = true;
+      let errorMessage = "";
+
       if (!elia.value && !francesca.value) {
-        alert("Per favore, seleziona almeno Elia o Francesca.");
-        return;
+        errorMessage += "Per favore, seleziona almeno Elia o Francesca.\n";
+        isValid = false;
       }
       if (!selectedTime.value) {
-        alert("Per favore, seleziona un orario per l'appuntamento.");
-        return;
+        errorMessage += "Per favore, seleziona un orario per l'appuntamento.\n";
+        isValid = false;
       }
-      if (
-        !formData.name ||
-        !formData.phone ||
-        !formData.email ||
-        !formData.message
-      ) {
-        alert("Per favore, compila tutti i campi.");
-        return;
+      if (!formData.name) {
+        errorMessage += "Per favore, inserisci il tuo nome.\n";
+        isValid = false;
+      }
+      // You can add more specific validations for each field. For example:
+      if (!formData.phone || !isValidPhoneNumber(formData.phone)) {
+        errorMessage += "Per favore, inserisci un numero di telefono valido.\n";
+        isValid = false;
+      }
+      if (!formData.email || !isValidEmail(formData.email)) {
+        errorMessage += "Per favore, inserisci un'email valida.\n";
+        isValid = false;
+      }
+      if (!formData.message) {
+        errorMessage += "Per favore, inserisci un messaggio.\n";
+        isValid = false;
       }
       if (!appointment_date.value || !appointment_slot.value) {
-        alert("Per favore, seleziona un orario per l'appuntamento.");
+        errorMessage +=
+          "Per favore, seleziona una data e un orario per l'appuntamento.\n";
+        isValid = false;
+      }
+
+      if (!isValid) {
+        alert(errorMessage);
         return;
       }
+
       await submitForm();
     };
     // Adjusted click handler for time selection
