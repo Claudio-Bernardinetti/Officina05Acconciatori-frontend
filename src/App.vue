@@ -5,21 +5,15 @@ import ComponentNavbar from "./components/ComponentNavbar.vue";
 
 export default {
   name: "App",
-  components: {
-    ComponentNavbar,
-    RouterView,
-    ComponentFooter,
-  },
+  components: { ComponentNavbar, RouterView, ComponentFooter },
 };
 </script>
 
 <template>
   <ComponentNavbar />
-
-  <main class="min-vh-100">
+  <main>
     <router-view></router-view>
   </main>
-
   <ComponentFooter />
 </template>
 
@@ -27,6 +21,7 @@ export default {
 @use "./assets/scss/partials/variables" as *;
 
 main {
-  background-color: rgb(151, 173, 193);
+  background: #0e0b14;
+  min-height: calc(100vh - 62px);
 }
 </style>
